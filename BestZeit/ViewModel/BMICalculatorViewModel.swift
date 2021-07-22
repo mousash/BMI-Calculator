@@ -9,8 +9,17 @@ import Foundation
 
 class BMICalculatorViewModel {
     
-    func calculateBMI() {
-        
+    var height: Int
+    var weight: Int
+    
+    init(height:Int, weight: Int) {
+        self.height = height
+        self.weight = weight
+    }
+    
+    func calculateBMI() -> Double {
+        let result = weight / (height * height)
+        return Double(result)
     }
     
 }
