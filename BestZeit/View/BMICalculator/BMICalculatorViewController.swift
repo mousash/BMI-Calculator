@@ -39,5 +39,8 @@ class BMICalculatorViewController: UIViewController {
 
     
     @IBAction func doneButtonAction(_ sender: Any) {
+        let vc = BMIResultViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
