@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="backButton" destination="XuO-3n-7lR" id="Zea-Zz-kog"/>
                 <outlet property="headerView" destination="cFX-q2-DXW" id="aLn-ny-Ztv"/>
-                <outlet property="resultLabel" destination="C7x-LG-65M" id="Oyo-q6-ygc"/>
+                <outlet property="resultLabel" destination="C7x-LG-65M" id="vcN-z6-bYf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

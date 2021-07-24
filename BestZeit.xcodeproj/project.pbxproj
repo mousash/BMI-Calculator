@@ -13,6 +13,13 @@
 		8491930026A9FC6000E0C6C3 /* BMIResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849192FE26A9FC6000E0C6C3 /* BMIResultViewController.swift */; };
 		8491930126A9FC6000E0C6C3 /* BMIResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849192FF26A9FC6000E0C6C3 /* BMIResultViewController.xib */; };
 		8491930426AA023100E0C6C3 /* BMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491930326AA023100E0C6C3 /* BMIModel.swift */; };
+		8491930626AC100B00E0C6C3 /* WeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491930526AC100B00E0C6C3 /* WeightCollectionView.swift */; };
+		8491930F26AC1CE800E0C6C3 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491930D26AC1CE800E0C6C3 /* NumberCollectionViewCell.swift */; };
+		8491931026AC1CE800E0C6C3 /* NumberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8491930E26AC1CE800E0C6C3 /* NumberCollectionViewCell.xib */; };
+		8491931326AC2C3600E0C6C3 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491931226AC2C3600E0C6C3 /* Gradient.swift */; };
+		8491931526AC344600E0C6C3 /* HeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491931426AC344600E0C6C3 /* HeightCollectionView.swift */; };
+		8491931826AC368700E0C6C3 /* HeightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491931626AC368700E0C6C3 /* HeightCollectionViewCell.swift */; };
+		8491931926AC368700E0C6C3 /* HeightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8491931726AC368700E0C6C3 /* HeightCollectionViewCell.xib */; };
 		94AE292926A9E61000049A46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE292826A9E61000049A46 /* AppDelegate.swift */; };
 		94AE292B26A9E61000049A46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE292A26A9E61000049A46 /* SceneDelegate.swift */; };
 		94AE293026A9E61000049A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AE292E26A9E61000049A46 /* Main.storyboard */; };
@@ -31,6 +38,13 @@
 		849192FE26A9FC6000E0C6C3 /* BMIResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResultViewController.swift; sourceTree = "<group>"; };
 		849192FF26A9FC6000E0C6C3 /* BMIResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMIResultViewController.xib; sourceTree = "<group>"; };
 		8491930326AA023100E0C6C3 /* BMIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIModel.swift; sourceTree = "<group>"; };
+		8491930526AC100B00E0C6C3 /* WeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCollectionView.swift; sourceTree = "<group>"; };
+		8491930D26AC1CE800E0C6C3 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
+		8491930E26AC1CE800E0C6C3 /* NumberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberCollectionViewCell.xib; sourceTree = "<group>"; };
+		8491931226AC2C3600E0C6C3 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		8491931426AC344600E0C6C3 /* HeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightCollectionView.swift; sourceTree = "<group>"; };
+		8491931626AC368700E0C6C3 /* HeightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightCollectionViewCell.swift; sourceTree = "<group>"; };
+		8491931726AC368700E0C6C3 /* HeightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeightCollectionViewCell.xib; sourceTree = "<group>"; };
 		94AE292526A9E61000049A46 /* BestZeit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestZeit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AE292826A9E61000049A46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94AE292A26A9E61000049A46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +81,10 @@
 		849192FD26A9FBBA00E0C6C3 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				849192F926A9F18B00E0C6C3 /* CustomButton.swift */,
 				849192FB26A9F74D00E0C6C3 /* CustomSegment.swift */,
+				849192F926A9F18B00E0C6C3 /* CustomButton.swift */,
+				849192F826A9EE3C00E0C6C3 /* CustomNavigation */,
+				8491931226AC2C3600E0C6C3 /* Gradient.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -80,6 +96,26 @@
 				849192FF26A9FC6000E0C6C3 /* BMIResultViewController.xib */,
 			);
 			path = BMIResult;
+			sourceTree = "<group>";
+		};
+		8491931126AC2BE100E0C6C3 /* WeightCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8491930526AC100B00E0C6C3 /* WeightCollectionView.swift */,
+				8491930D26AC1CE800E0C6C3 /* NumberCollectionViewCell.swift */,
+				8491930E26AC1CE800E0C6C3 /* NumberCollectionViewCell.xib */,
+			);
+			path = WeightCollectionView;
+			sourceTree = "<group>";
+		};
+		8491931A26AC9F2E00E0C6C3 /* HeightCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8491931426AC344600E0C6C3 /* HeightCollectionView.swift */,
+				8491931626AC368700E0C6C3 /* HeightCollectionViewCell.swift */,
+				8491931726AC368700E0C6C3 /* HeightCollectionViewCell.xib */,
+			);
+			path = HeightCollectionView;
 			sourceTree = "<group>";
 		};
 		94AE291C26A9E61000049A46 = {
@@ -127,7 +163,6 @@
 			children = (
 				849192FD26A9FBBA00E0C6C3 /* CustomViews */,
 				94AE294A26A9EB8900049A46 /* BMICalculator */,
-				849192F826A9EE3C00E0C6C3 /* CustomNavigation */,
 				8491930226A9FDA900E0C6C3 /* BMIResult */,
 			);
 			path = View;
@@ -146,6 +181,8 @@
 			children = (
 				94AE294126A9E6E200049A46 /* BMICalculatorViewController.swift */,
 				94AE294226A9E6E200049A46 /* BMICalculatorViewController.xib */,
+				8491931126AC2BE100E0C6C3 /* WeightCollectionView */,
+				8491931A26AC9F2E00E0C6C3 /* HeightCollectionView */,
 			);
 			path = BMICalculator;
 			sourceTree = "<group>";
@@ -212,6 +249,8 @@
 				94AE294D26A9EBB500049A46 /* CustomNavigation.xib in Resources */,
 				94AE294426A9E6E200049A46 /* BMICalculatorViewController.xib in Resources */,
 				94AE293226A9E61200049A46 /* Assets.xcassets in Resources */,
+				8491931926AC368700E0C6C3 /* HeightCollectionViewCell.xib in Resources */,
+				8491931026AC1CE800E0C6C3 /* NumberCollectionViewCell.xib in Resources */,
 				94AE293026A9E61000049A46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,15 +262,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8491931526AC344600E0C6C3 /* HeightCollectionView.swift in Sources */,
 				849192F726A9EDE100E0C6C3 /* CustomHeader.swift in Sources */,
 				94AE292926A9E61000049A46 /* AppDelegate.swift in Sources */,
+				8491931826AC368700E0C6C3 /* HeightCollectionViewCell.swift in Sources */,
 				849192FC26A9F74D00E0C6C3 /* CustomSegment.swift in Sources */,
+				8491930F26AC1CE800E0C6C3 /* NumberCollectionViewCell.swift in Sources */,
 				849192FA26A9F18B00E0C6C3 /* CustomButton.swift in Sources */,
 				94AE294826A9E7BE00049A46 /* BMICalculatorViewModel.swift in Sources */,
 				94AE294326A9E6E200049A46 /* BMICalculatorViewController.swift in Sources */,
+				8491930626AC100B00E0C6C3 /* WeightCollectionView.swift in Sources */,
 				8491930026A9FC6000E0C6C3 /* BMIResultViewController.swift in Sources */,
 				94AE292B26A9E61000049A46 /* SceneDelegate.swift in Sources */,
 				8491930426AA023100E0C6C3 /* BMIModel.swift in Sources */,
+				8491931326AC2C3600E0C6C3 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

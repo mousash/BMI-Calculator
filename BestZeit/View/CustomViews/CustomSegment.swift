@@ -22,8 +22,8 @@ class CustomSegmentedControl: UISegmentedControl{
         if subviews.indices.contains(foregroundIndex), let foregroundImageView = subviews[foregroundIndex] as? UIImageView
         {
             foregroundImageView.bounds = foregroundImageView.bounds.insetBy(dx: segmentInset, dy: segmentInset)
-            foregroundImageView.image = segmentImage    //substitute with our own colored image
-            foregroundImageView.layer.removeAnimation(forKey: "SelectionBounds")    //this removes the weird scaling animation!
+            foregroundImageView.image = segmentImage
+            foregroundImageView.layer.removeAnimation(forKey: "SelectionBounds")
             foregroundImageView.layer.masksToBounds = true
             foregroundImageView.layer.cornerRadius = foregroundImageView.bounds.height/2
         }

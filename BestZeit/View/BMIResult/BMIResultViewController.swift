@@ -13,6 +13,8 @@ class BMIResultViewController: UIViewController {
     @IBOutlet weak var backButton: CustomButton!
     @IBOutlet weak var resultLabel: UILabel!
     
+    var result = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,7 @@ class BMIResultViewController: UIViewController {
     private func setupUI() {
         headerView.titleLabel.text = "BMI \nResult"
         backButton.titleText = "Back"
+        resultLabel.text = result
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
