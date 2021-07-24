@@ -11,9 +11,14 @@ class BMICalculatorViewModel {
     
     var bmi: BMIModel = BMIModel(height: 0, weight: 0, bmi: 0)
     
-    func calculateBMI() -> Double {
-        let result = bmi.weight / (bmi.height * bmi.height)
-        return Double(result)
+    func calculateBMI() -> Int {
+        let height = Measurement(value: Double(bmi.height), unit: UnitLength.centimeters)
+        let heightSensible = height.converted(to: UnitLength.meters)
+        
+        let heightMultiple = Double(heightSensible.value * heightSensible.value)
+        let weight = Double(bmi.weight)
+        let result = weight / heightMultiple
+        return Int(result)
     }
     
 }
