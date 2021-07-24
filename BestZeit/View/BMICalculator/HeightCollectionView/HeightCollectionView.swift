@@ -49,7 +49,7 @@ class HeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeightCollectionViewCell", for: indexPath) as! HeightCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeightCollectionViewCell.reuseIdentifier, for: indexPath) as? HeightCollectionViewCell else {return UICollectionViewCell()}
         
         cell.configure(index: indexPath.row)
         return cell
