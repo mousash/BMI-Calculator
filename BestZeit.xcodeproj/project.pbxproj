@@ -87,9 +87,9 @@
 			children = (
 				849192FB26A9F74D00E0C6C3 /* CustomSegment.swift */,
 				849192F926A9F18B00E0C6C3 /* CustomButton.swift */,
-				84D7D77E26ADB96000272F68 /* MyCollectionViewFlowLayout.swift */,
 				849192F826A9EE3C00E0C6C3 /* CustomNavigation */,
 				8491931226AC2C3600E0C6C3 /* Gradient.swift */,
+				84D7D77E26ADB96000272F68 /* MyCollectionViewFlowLayout.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
