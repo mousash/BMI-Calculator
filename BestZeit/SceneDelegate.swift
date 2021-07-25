@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let viewController = BMICalculatorViewController(nibName: "BMICalculatorViewController", bundle: nil)
+        let viewController = BMICalculatorViewController(nibName: "\(BMICalculatorViewController.self)", bundle: nil)
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

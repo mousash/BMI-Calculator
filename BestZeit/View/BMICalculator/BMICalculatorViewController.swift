@@ -76,10 +76,12 @@ class BMICalculatorViewController: UIViewController {
     @IBAction func doneButtonAction(_ sender: Any) {
         guard let heightCenter = heightView.collectionView.centerCellIndexPath?.row else { return }
         guard let weightCenter = weightView.collectionView.centerCellIndexPath?.row else { return }
+        
         viewModel.bmi.height = heightCenter
         viewModel.bmi.weight = weightCenter
+        
         let vc = BMIResultViewController()
-        vc.result = String(viewModel.calculateBMI())
+        vc.result = viewModel.calculateBMI()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
