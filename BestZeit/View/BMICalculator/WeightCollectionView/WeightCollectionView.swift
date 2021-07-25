@@ -10,18 +10,19 @@ import UIKit
 class WeightCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var onceOnly = false
+    var centerCell: NumberCollectionViewCell? = NumberCollectionViewCell()
     
     lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = MyCollectionViewFlowLayout()
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.delegate = self
         cv.dataSource = self
         cv.register(UINib(nibName: NumberCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: NumberCollectionViewCell.reuseIdentifier)
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
         cv.collectionViewLayout = layout
         cv.backgroundColor = .white
+        cv.showsHorizontalScrollIndicator = false
+        
         return cv
     }()
     
@@ -48,7 +49,7 @@ class WeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberCollectionViewCell.reuseIdentifier, for: indexPath) as? NumberCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberCollectionViewCell.reuseIdentifier, for: indexPath) as? NumberCollectionViewCell else { return UICollectionViewCell() }
 
         cell.configure(index: indexPath.row)
         return cell
@@ -56,31 +57,34 @@ class WeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 40, height: 80)
+        return CGSize(width: 40, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if !onceOnly {
-          let indexToScrollTo = IndexPath(item: 60, section: 0)
+          let indexToScrollTo = IndexPath(item: 56, section: 0)
           collectionView.scrollToItem(at: indexToScrollTo, at: .left, animated: false)
           onceOnly = true
         }
       }
-}
-
-
-extension UICollectionView {
     
-    var centerPoint : CGPoint {
-        get {
-            return CGPoint(x: self.center.x + self.contentOffset.x, y: self.center.y + self.contentOffset.y);
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView is UICollectionView else { return }
+        
+        let centerPoint = CGPoint(x: self.collectionView.frame.size.width / 2 + scrollView.contentOffset.x, y: self.collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
+        
+        if let indexPath = self.collectionView.indexPathForItem(at: centerPoint), self.centerCell == nil {
+            self.centerCell = (self.collectionView.cellForItem(at: indexPath) as! NumberCollectionViewCell)
+            
+            self.centerCell?.transformToLarge()
         }
-    }
-    
-    var centerCellIndexPath: IndexPath? {
-        if let centerIndexPath: IndexPath  = self.indexPathForItem(at: self.centerPoint) {
-            return centerIndexPath
+        if let cell = self.centerCell {
+            let offsetX = centerPoint.x - cell.center.x
+            
+            if offsetX < -15 || offsetX > 15 {
+                cell.transformToStandard()
+                self.centerCell = nil
+            }
         }
-        return nil
     }
 }

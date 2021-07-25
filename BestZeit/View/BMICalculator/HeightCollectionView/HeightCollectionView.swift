@@ -10,18 +10,18 @@ import UIKit
 class HeightCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var onceOnly = false
+    var centerCell: HeightCollectionViewCell? = HeightCollectionViewCell()
     
     lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = MyCollectionViewFlowLayout()
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.delegate = self
         cv.dataSource = self
         cv.register(UINib(nibName: HeightCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: HeightCollectionViewCell.reuseIdentifier)
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
         cv.collectionViewLayout = layout
         cv.backgroundColor = .white
+        cv.showsHorizontalScrollIndicator = false
         
         return cv
     }()
@@ -29,7 +29,6 @@ class HeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(collectionView)
-        //Add constraint
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -49,7 +48,7 @@ class HeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeightCollectionViewCell.reuseIdentifier, for: indexPath) as? HeightCollectionViewCell else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeightCollectionViewCell.reuseIdentifier, for: indexPath) as? HeightCollectionViewCell else { return UICollectionViewCell() }
         
         cell.configure(index: indexPath.row)
         return cell
@@ -62,10 +61,29 @@ class HeightCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if !onceOnly {
-          let indexToScrollTo = IndexPath(item: 160, section: 0)
+          let indexToScrollTo = IndexPath(item: 171, section: 0)
           collectionView.scrollToItem(at: indexToScrollTo, at: .left, animated: false)
           onceOnly = true
         }
       }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView is UICollectionView else { return }
+        
+        let centerPoint = CGPoint(x: self.collectionView.frame.size.width / 2 + scrollView.contentOffset.x, y: self.collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
+        
+        if let indexPath = self.collectionView.indexPathForItem(at: centerPoint), self.centerCell == nil {
+            self.centerCell = (self.collectionView.cellForItem(at: indexPath) as! HeightCollectionViewCell)
+            
+            self.centerCell?.transformToLarge()
+        }
+        if let cell = self.centerCell {
+            let offsetX = centerPoint.x - cell.center.x
+            
+            if offsetX < -15 || offsetX > 15 {
+                cell.transformToStandard()
+                self.centerCell = nil
+            }
+        }
+    }
 }

@@ -16,14 +16,14 @@ class BMICalculatorViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var doneButton: CustomButton!
     lazy var weightView: WeightCollectionView = {
-        let tv = WeightCollectionView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
+        let weightView = WeightCollectionView()
+        weightView.translatesAutoresizingMaskIntoConstraints = false
+        return weightView
     }()
     lazy var heightView: HeightCollectionView = {
-        let tv = HeightCollectionView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
+        let heightView = HeightCollectionView()
+        heightView.translatesAutoresizingMaskIntoConstraints = false
+        return heightView
     }()
 
     let viewModel = BMICalculatorViewModel()
@@ -68,14 +68,14 @@ class BMICalculatorViewController: UIViewController {
     private func setupGenderSegment() {
         genderSegment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         genderSegment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-        genderSegment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], for: .normal)
+        genderSegment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)], for: .normal)
         genderSegment.backgroundColor = UIColor.white
         genderSegment.layer.borderWidth = 1
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        guard let heightCenter = heightView.collectionView.centerCellIndexPath?.row else {return}
-        guard let weightCenter = weightView.collectionView.centerCellIndexPath?.row else {return}
+        guard let heightCenter = heightView.collectionView.centerCellIndexPath?.row else { return }
+        guard let weightCenter = weightView.collectionView.centerCellIndexPath?.row else { return }
         viewModel.bmi.height = heightCenter
         viewModel.bmi.weight = weightCenter
         let vc = BMIResultViewController()

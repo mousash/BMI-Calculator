@@ -37,8 +37,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiF-6u-EPM">
-                        <rect key="frame" x="28.5" y="33.5" width="54.5" height="27.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                        <rect key="frame" x="26.5" y="33.5" width="58.5" height="27.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -72,7 +72,12 @@
             </constraints>
             <size key="customSize" width="111" height="85"/>
             <connections>
+                <outlet property="fifthLine" destination="wCx-Z5-uIL" id="0J2-4K-FHC"/>
+                <outlet property="firstLine" destination="jRU-bW-BDe" id="AjD-sR-DUE"/>
+                <outlet property="forthLine" destination="am8-Fo-InT" id="XhN-8b-Is6"/>
                 <outlet property="numberLabel" destination="PiF-6u-EPM" id="TKw-GT-8yY"/>
+                <outlet property="secondLine" destination="xby-rX-Z7Z" id="5C8-p6-Qt6"/>
+                <outlet property="thirdLine" destination="67a-no-iNt" id="HUq-bu-f6X"/>
             </connections>
             <point key="canvasLocation" x="183.33333333333334" y="113.50446428571428"/>
         </collectionViewCell>
